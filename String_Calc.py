@@ -4,7 +4,14 @@ class Calculator:
     @staticmethod
     def add(numbers):
         num = Calculator.splitter(numbers)
+        Calculator.throw_exception_if_any_negative(num)
         return Calculator.find_sum(num)
+
+    @staticmethod
+    def throw_exception_if_any_negative(num):
+        negative = [n for n in num if Calculator.to_int(n) < 0]
+        if negative:
+            raise RuntimeError("negatives not allowed: " + ", ".join(negative))
 
     @staticmethod
     def find_sum(num):
