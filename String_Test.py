@@ -24,5 +24,9 @@ class TestCalculator(unittest.TestCase):
     def test_should_allow_regex_char_as_custom_delimiter(self):
         self.assertEqual(Calculator.add("//.\n1.2"), 3)
 
+    def test_should_throw_exception_for_negative_numbers(self):
+        with self.assertRaises(RuntimeError):
+            Calculator.add("1,-2,3")
+
 if __name__ == '__main__':
     unittest.main()
