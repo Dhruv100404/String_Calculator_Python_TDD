@@ -21,5 +21,8 @@ class TestCalculator(unittest.TestCase):
     def test_should_allow_custom_delimiter(self):
         self.assertEqual(Calculator.add("//;\n1;2"), 3)
 
+    def test_should_allow_regex_char_as_custom_delimiter(self):
+        self.assertEqual(Calculator.add("//.\n1.2"), 3)
+
 if __name__ == '__main__':
     unittest.main()
